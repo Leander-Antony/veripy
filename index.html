@@ -28,21 +28,17 @@
 
     .left-panel {
       width: 50%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(5, 1fr);
+      gap: 15px;
+      overflow-y: auto;
     }
 
     .image-box {
-      flex: 1;
-      margin-bottom: 15px;
       overflow: hidden;
       border-radius: 8px;
       border: 1px solid #ccc;
-    }
-
-    .image-box:last-child {
-      margin-bottom: 0;
     }
 
     .image-box img {
@@ -120,12 +116,46 @@
         <img src="bbc.png" alt="Image 3" data-description="This is the third image description."/>
       </a>
     </div>
+    <div class="image-box">
+      <a href="https://edition.cnn.com/" target="_blank">
+        <img src="CNN.png" alt="Image 4" data-description="This is the fourth image description."/>
+      </a>
+    </div>
+    <div class="image-box">
+      <a href="https://www.reuters.com/" target="_blank">
+        <img src="reuters.png" alt="Image 5" data-description="This is the fifth image description."/>
+      </a>
+    </div>
+    <div class="image-box">
+      <a href="https://www.aljazeera.com/" target="_blank">
+        <img src="aljazeera.png" alt="Image 6" data-description="This is the sixth image description."/>
+      </a>
+    </div>
+    <div class="image-box">
+      <a href="https://www.nytimes.com/" target="_blank">
+        <img src="nytimes.png" alt="Image 7" data-description="This is the seventh image description."/>
+      </a>
+    </div>
+    <div class="image-box">
+      <a href="https://www.wsj.com/" target="_blank">
+        <img src="wsj.jpg" alt="Image 8" data-description="This is the eighth image description."/>
+      </a>
+    </div>
+    <div class="image-box">
+      <a href="https://www.guardian.co.uk/" target="_blank">
+        <img src="guardian.jpg" alt="Image 9" data-description="This is the ninth image description."/>
+      </a>
+    </div>
+    <div class="image-box">
+      <a href="https://www.economist.com/" target="_blank">
+        <img src="economist.png" alt="Image 10" data-description="This is the tenth image description."/>
+      </a>
+    </div>
   </div>
 
   <div class="right-panel">
     <div class="score-box">
       <h2>Score: <span id="score">0</span></h2>
-      
     </div>
     <div class="summary-box">
       <h3>Article Summary:</h3>
@@ -145,7 +175,7 @@
   function ArticleSummary() {
     const images = document.querySelectorAll('.image-box img');
     const summary = Array.from(images)
-      .map(img => `- ${img.getAttribute('data-description')}`)
+      .map(img => img.getAttribute('data-description'))
       .join('\n');
     document.getElementById('summary').textContent = summary;
   }
