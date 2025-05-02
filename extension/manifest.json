@@ -1,24 +1,23 @@
 {
-    "manifest_version": 3,
-    "name": "VeriPy",
+    "name": "Selected Text Logger",
     "version": "1.0",
-    "description": "A Chrome extension to display the credibility score of news.",
-    "icons": {
-      "16": "icons/03.jpg",
-      "48": "icons/00.jpg",
-      "128": "icons/01.jpg"
-    },
+    "manifest_version": 3,
+    "description": "Right-click to log selected text to the console.",
     "permissions": [
-        "contextMenus",
-        "activeTab",
-        "storage"
+      "contextMenus",
+      "activeTab",
+      "scripting"
     ],
-    "host_permissions": ["<all_urls>"],
-    "action": {
-      "default_popup": "index.html",
-      "default_icon": "icons/00.jpg"
-    },
     "background": {
       "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "Log Selected Text"
+    },
+    "icons": {
+      "17": "icons/icon17.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.jpg"
     }
-}
+  }
+  

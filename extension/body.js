@@ -4,15 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Get selected text from URL if available
     const urlParams = new URLSearchParams(window.location.search);
-    const selectedText = urlParams.get('text');
+    const selectedTextFromPopup = urlParams.get('text');
     
-    if (selectedText) {
+    if (selectedTextFromPopup) {
+        console.log('Selected text in popup:', selectedTextFromPopup);
         // Process the selected text and update UI
-        analyzeText(selectedText);
+        analyzeText(selectedTextFromPopup);
     } else {
         // Default display if no text is selected
         scoreElement.textContent = "Select text to analyze";
         biasArrow.style.left = "50%"; // Center the arrow by default
+    }
+
+    // Add keyboard shortcut hint
+    if (!selectedTextFromPopup) {
+        scoreElement.textContent = "Select text and press Ctrl+Shift+V (or Command+Shift+V on Mac) to analyze";
     }
 
     const prefsBtn = document.getElementById('prefsBtn');
